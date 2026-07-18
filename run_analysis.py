@@ -24,7 +24,8 @@ from pssm_analyzer import analyze_pssm, summary_narrative, predict_mutation, FUN
 def write_csv(results, out_path):
     fields = ["position", "wild_residue", "wild_score", "information_content_bits",
               "conservation", "best_residue", "best_score", "second_best_residue",
-              "second_best_score", "worst_residue", "worst_score"]
+              "second_best_score", "worst_residue", "worst_score",
+              "favored_residues", "rejected_residues"]
     with open(out_path, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fields)
         writer.writeheader()
@@ -82,13 +83,12 @@ def write_report(parsed, results, out_path, csv_name, profile_png, heatmap_png):
     lines.append(f"![Conservation profile]({os.path.basename(profile_png)})\n")
     lines.append(f"![Score heatmap]({os.path.basename(heatmap_png)})\n")
     lines.append("## Top 10 most conserved positions\n")
-    lines.append("| Position | Wild residue | IC (bits) | Conservation | Best alt. | Worst alt. |")
-    lines.append("|---|---|---|---|---|---|")
+    lines.append("| Position | Wild residue | IC (bits) | Favored | Rejected |")
+    lines.append("|---|---|---|---|---|")
     for r in top10:
         lines.append(
             f"| {r['position']} | {r['wild_residue']} | {r['information_content_bits']} "
-            f"| {r['conservation']} | {r['best_residue']} ({r['best_score']}) "
-            f"| {r['worst_residue']} ({r['worst_score']}) |"
+            f"| {r['favored_residues']} | {r['rejected_residues']} |"
         )
     lines.append(f"\nFull per-position data: `{csv_name}`\n")
     lines.append("## Interpretation notes\n")

@@ -15,18 +15,18 @@ The PSSM for sp|P12004|PCNA_HUMAN DNA sliding clamp PCNA OS=Homo sapiens GN=PCNA
 
 ## Top 10 most conserved positions
 
-| Position | Wild residue | IC (bits) | Conservation | Best alt. | Worst alt. |
-|---|---|---|---|---|---|
-| 28 | W | 2.48 | highly conserved | W (11) | D (-5) |
-| 221 | P | 2.071 | highly conserved | P (8) | W (-4) |
-| 235 | P | 2.071 | highly conserved | P (8) | W (-4) |
-| 253 | P | 2.069 | highly conserved | P (8) | W (-4) |
-| 130 | P | 1.861 | moderately conserved | P (8) | Y (-3) |
-| 203 | P | 1.761 | moderately conserved | P (7) | W (-4) |
-| 141 | P | 1.702 | moderately conserved | P (7) | W (-4) |
-| 106 | P | 1.648 | moderately conserved | P (7) | W (-4) |
-| 62 | C | 1.388 | moderately conserved | C (9) | E (-4) |
-| 81 | C | 1.388 | moderately conserved | C (9) | E (-4) |
+| Position | Wild residue | IC (bits) | Favored | Rejected |
+|---|---|---|---|---|
+| 28 | W | 2.48 | W(11) | A(-3);R(-3);C(-3);E(-3);G(-3);H(-3);I(-3);K(-3);S(-3);T(-3);V(-3);N(-4);P(-4);D(-5) |
+| 221 | P | 2.071 | P(8) | C(-3);I(-3);L(-3);M(-3);Y(-3);V(-3);F(-4);W(-4) |
+| 235 | P | 2.071 | P(8) | C(-3);I(-3);L(-3);M(-3);Y(-3);V(-3);F(-4);W(-4) |
+| 253 | P | 2.069 | P(8) | C(-3);I(-3);L(-3);M(-3);Y(-3);V(-3);F(-4);W(-4) |
+| 130 | P | 1.861 | P(8) | C(-3);I(-3);L(-3);F(-3);W(-3);Y(-3) |
+| 203 | P | 1.761 | P(7) | C(-3);I(-3);L(-3);Y(-3);F(-4);W(-4) |
+| 141 | P | 1.702 | P(7) | C(-3);F(-3);Y(-3);W(-4) |
+| 106 | P | 1.648 | P(7) | C(-3);L(-3);Y(-3);F(-4);W(-4) |
+| 62 | C | 1.388 | C(9) | N(-3);Q(-3);G(-3);H(-3);K(-3);F(-3);P(-3);W(-3);Y(-3);R(-4);D(-4);E(-4) |
+| 81 | C | 1.388 | C(9) | N(-3);Q(-3);G(-3);H(-3);K(-3);F(-3);P(-3);W(-3);Y(-3);R(-4);D(-4);E(-4) |
 
 Full per-position data: `pssm_analysis.csv`
 

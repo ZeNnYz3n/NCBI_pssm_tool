@@ -69,7 +69,14 @@ FUNCTIONAL_HINTS = (
 )
 
 
-def analyze_position(pos_index, wild_residue, scores_at_pos, freq_at_pos):
+def analyze_position(pos_index, wild_residue, scores_at_pos, freq_at_pos,
+                      favored_threshold=3, rejected_threshold=-3):
+    """
+    favored_threshold / rejected_threshold are in raw PSSM score units
+    (roughly half-bits for PSI-BLAST-style matrices). Defaults of +3/-3
+    are a reasonable starting point -- tune per-matrix if your scores
+    run hotter or colder than typical BLOSUM62-derived profiles.
+    """
     ic = information_content(freq_at_pos)
     conservation = classify_conservation(ic)
 
@@ -78,6 +85,9 @@ def analyze_position(pos_index, wild_residue, scores_at_pos, freq_at_pos):
     second_aa, second_score = ranked[1]
     worst_aa, worst_score = ranked[-1]
     wild_score = scores_at_pos[wild_residue]
+
+    favored = [(aa, s) for aa, s in ranked if s >= favored_threshold]
+    rejected = [(aa, s) for aa, s in ranked if s <= rejected_threshold]
 
     return {
         "position": pos_index + 1,  # 1-indexed for humans
@@ -91,6 +101,8 @@ def analyze_position(pos_index, wild_residue, scores_at_pos, freq_at_pos):
         "second_best_score": second_score,
         "worst_residue": worst_aa,
         "worst_score": worst_score,
+        "favored_residues": ";".join(f"{aa}({s})" for aa, s in favored),
+        "rejected_residues": ";".join(f"{aa}({s})" for aa, s in rejected),
     }
 
 
