@@ -78,11 +78,4 @@ print(predict_mutation(parsed, 87, "D"))
    psiblast version and the numbers stop summing to ~1, that assumption
    needs re-checking against the new file before trusting the IC values.
 
-## Deliberately NOT in this version
 
-Per the earlier discussion: structural mapping (PDB coloring), Pfam/CDD/
-domain search, and literature mining are all left out. They're valuable
-but each is its own real integration with its own failure modes (literature
-mining especially -- residue numbering mismatches between your PSSM and an
-arbitrary paper's numbering is an easy way to generate confidently wrong
-citations). Add them once this core layer has proven useful to you.
