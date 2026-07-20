@@ -5,6 +5,10 @@ into a conservation analysis: per-position information content, functional
 interpretation, a mutation-effect predictor, and plots -- instead of a raw
 matrix.
 
+**[Try it live in your browser](https://zennyz3n.github.io/NCBI_pssm_tool/pssm.html)** — upload a PSSM and get results instantly, no install needed. Runs entirely client-side; your file never leaves your browser.
+
+Prefer to run it yourself? Clone this repo and use the CLI (`run_analysis.py`) — see [Install](#install) and [Quickstart](#quickstart) below. Same parser and analysis code powers both versions.
+
 ## Install
 
 ```bash
